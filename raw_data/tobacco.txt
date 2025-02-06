@@ -1,0 +1,39 @@
+Al Fakher,Мята,4,Средняя
+Starbuzz,Арбуз,5,Средняя
+Nakhla,Лимон,3,Легкая
+Fumari,Клубника,6,Средняя
+Adalya,Персик,7,Тяжелая
+Serbetli,Ваниль,5,Средняя
+Social Smoke,Тропические фрукты,8,Тяжелая
+Tangiers,Дыня,9,Тяжелая
+Darkside,Кофе,10,Тяжелая
+Zomo,Грейпфрут,6,Средняя
+Al Waha,Киви,5,Средняя
+Haze,Мандарин,4,Легкая
+Mya,Зеленый чай,3,Легкая
+Fumari,Лимонад,7,Тяжелая
+Nakhla,Персик-манго,6,Средняя
+Starbuzz,Кокос,8,Тяжелая
+Adalya,Маракуйя,5,Средняя
+Social Smoke,Яблоко-канела,4,Легкая
+Tangiers,Кола,9,Тяжелая
+Darkside,Лесные ягоды,10,Тяжелая
+Zomo,Персик-лимон,6,Средняя
+Al Fakher,Фиалка,3,Легкая
+Serbetli,Лаванда-лимонник,5,Средняя
+Haze,Банан-крем,8,Тяжелая
+Mya,Папайя-манго,7,Тяжелая
+Fumari,Карамельный попкорн,6,Средняя
+Nakhla,Гранат-апельсин,4,Легкая
+Starbuzz,Cappuccino,8,Тяжелая
+Adalya,Citrus Mix,5,Средняя
+Social Smoke,Berry Blast,7,Тяжелая
+Tangiers,Grape Soda,9,Тяжелая
+Darkside,Cinnamon Roll,10,Тяжелая
+Zomo,Pineapple Mint,6,Средняя
+Al Waha,Mango Tango,5,Средняя
+Haze,Tropical Punch,4,Легкая
+Mya,Raspberry Lemonade,7,Тяжелая
+Fumari,Sour Apple Candy,6,Средняя
+Nakhla,Mint Lemonade,3,Легкая
+Starbuzz,Pineapple Coconut Cooler,8,Тяжелая
