@@ -29,9 +29,33 @@ import json
 
 
 def generate_report(tobacco_mix):
-    return f"Чтобы сделать этот крутой микс, возьмите 50% табака {tobacco_mix[0]['tobacco_brand']} со вкусом {tobacco_mix[0]['tobacco_flavor']}, добавьте 50% табака {tobacco_mix[1]['tobacco_brand']} со вкусом {tobacco_mix[1]['tobacco_flavor']}, используйте чашу {tobacco_mix[0]['tobacco_pot']} или {tobacco_mix[1]['tobacco_pot']}"
+    # return f"Чтобы сделать этот крутой микс, возьмите 40% табака {tobacco_mix[0]['tobacco_brand']} со вкусом {tobacco_mix[0]['tobacco_flavor']}, добавьте 50% табака {tobacco_mix[1]['tobacco_brand']} со вкусом {tobacco_mix[1]['tobacco_flavor']} и 10% табака {tobacco_mix[2]['tobacco_brand']} со вкусом {tobacco_mix[2]['tobacco_flavor']}, используйте чашу {tobacco_mix[0]['tobacco_pot']} или {tobacco_mix[1]['tobacco_pot']}"
+    # обойти список tobacco_mix['ingridients'] и достать брэнд и вкус (смотри выше)
+    # из этого же списка нужно получить список чаш
+    # нужно оставить только уникальные чаши
+    report = "Чтобы сделать этот крутой микс, возьмите " 
+    pot = []
+    for ingridient in tobacco_mix['ingridients']:
+        report+= f"{100//len(tobacco_mix['ingridients'])}% табака {ingridient['tobacco_brand']} со вкусом {ingridient['tobacco_flavor']} "
+        pot.append(ingridient['tobacco_pot'])
+    report+= f"\nПодходящие чаши: {' '.join(i for i in set(pot))}"
+    return report
 
-
+def make_tabacco_mix(tobacco_list, ingridients_number, requested_flavor):
+    requested_tobaccos = []
+    not_requested_tabaccos = []
+    for tobacco in tobacco_list:
+        if tobacco['tobacco_flavor'] == requested_flavor:
+            requested_tobaccos.append(tobacco)
+        else:
+            not_requested_tabaccos.append(tobacco)
+    return random.sample(requested_tobaccos,1) + random.sample(not_requested_tabaccos, ingridients_number-1)
+# запросить у пользователя количество вкусов в миксе
+# запросить желаемый вкус в миксе
+# обойти исходный список полностью и в новый подсписок взять элементы только с запрошенным ключом вкуса
+# получить подсписок из исходного с вычетом предыдущего подсписка
+# вернуть элемент из первого подсписка и недостающие из второго
+ 
 if __name__ == "__main__":
     # 1. Read file line by line
     with open("./raw_data/tobacco.txt") as raw_tobacco_data_file:
@@ -53,17 +77,22 @@ if __name__ == "__main__":
     ]
 
     # 5. Get combination of two random list elements
-    simple_mix = random.sample(tobacco_list, 2)
     
     # 6. Save combination into another dict
-    tobacco_mix = {
-        "first_tobacco": simple_mix[0],
-        "second_tobacco": simple_mix[1],
-    }
+    # tobacco_mix = {
+    #     "ingridients": simple_mix[0],
+    #     "rating": simple_mix[1],
+    #     "third_tabacco": simple_mix[2]
+    # }
+
 
     # 7. Add rating to combination
-    tobacco_mix["rating"] = random.randint(0, 100)
-
+    
+    tobacco_mix = {
+        'ingridients': make_tabacco_mix(tobacco_list, 3, 'Кола'),
+        'rating': random.randint(0, 100)
+    }
+    
     # 8. Save all of this as json
     with open("./output/mixes_data/new_mix.json", "w") as mix_file:
         json.dump(tobacco_mix, mix_file)
@@ -71,4 +100,4 @@ if __name__ == "__main__":
     with open("./output/tobacco_data/tobaccos.json", "w") as mix_file:
         json.dump(tobacco_list, mix_file)
     
-    print(generate_report(simple_mix))
+    print(generate_report(tobacco_mix))
