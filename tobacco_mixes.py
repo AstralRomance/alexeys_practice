@@ -89,7 +89,7 @@ if __name__ == "__main__":
     # 7. Add rating to combination
     
     tobacco_mix = {
-        'ingridients': make_tabacco_mix(tobacco_list, 3, 'Кола'),
+        'ingridients': make_tabacco_mix(tobacco_list, 3, 'Berry Blast'),
         'rating': random.randint(0, 100)
     }
     
